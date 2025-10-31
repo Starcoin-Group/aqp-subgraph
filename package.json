@@ -1,15 +1,15 @@
 {
-  "name": "aqp-collection-subgraph",
+  "name": "aqp-subgraph",
   "version": "1.0.0",
   "license": "GPL-3.0",
-  "description": "Subgraph for AQP Collection",
+  "description": "Subgraph for AQP",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ aqp-collection-subgraph",
-    "create-local": "graph create --node http://localhost:8020/ aqp-collection-subgraph",
-    "remove-local": "graph remove --node http://localhost:8020/ aqp-collection-subgraph",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 aqp-collection-subgraph",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ aqp-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ aqp-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ aqp-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 aqp-subgraph",
     "test": "graph test"
   },
   "dependencies": {
