@@ -29,7 +29,7 @@ aqp-subgraph/
 │  └─ aqp-redemption.ts          # Handles Redeemed / TicketsClaimed events
 ├─ schema.graphql                # Entity schema definitions
 ├─ subgraph.mainnet.yaml         # Mainnet manifest (conflux-espace)
-├─ subgraph.testnet.yaml         # Testnet manifest (conflux-espace-testnet)
+└─ subgraph.testnet.yaml         # Testnet manifest (conflux-espace-testnet)
 ```
 
 ### Choosing a Manifest (Mainnet vs Testnet)
