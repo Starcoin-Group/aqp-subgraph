@@ -1,8 +1,0 @@
-{
-  "sepolia": {
-    "ContractAqpRedemption": {
-      "address": "0xe6d7D6056A8B06Bd09585d85C029fa2e2a667491",
-      "startBlock": 0
-    }
-  }
-}

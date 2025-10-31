@@ -1,6 +1,8 @@
 {
   "name": "aqp-collection-subgraph",
-  "license": "UNLICENSED",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "description": "Subgraph for AQP Collection",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
@@ -14,5 +16,7 @@
     "@graphprotocol/graph-cli": "0.97.1",
     "@graphprotocol/graph-ts": "0.37.0"
   },
-  "devDependencies": { "matchstick-as": "0.6.0" }
+  "devDependencies": {
+    "matchstick-as": "0.6.0"
+  }
 }
