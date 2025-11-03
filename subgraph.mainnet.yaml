@@ -25,4 +25,4 @@ dataSources:
           handler: handleRedeemed
         - event: TicketsClaimed(indexed address,uint256)
           handler: handleTicketsClaimed
-      file: ./src/contract-aqp-redemption.ts
+      file: ./src/aqp-redemption.ts

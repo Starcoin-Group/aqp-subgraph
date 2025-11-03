@@ -49,7 +49,7 @@ yarn graph codegen subgraph.testnet.yaml
 yarn graph build subgraph.testnet.yaml
 
 # Deploy to Studio (after auth)
-yarn graph deploy --studio aqp-collection-subgraph subgraph.testnet.yaml
+yarn graph deploy --studio aqp-subgraph subgraph.testnet.yaml
 ```
 
 Alternatively, copy the one you want to use to `subgraph.yaml` and run the package scripts:
@@ -91,7 +91,7 @@ Then deploy using either the package script or explicit command with manifest:
 ```bash
 yarn deploy
 # or
-graph deploy --studio aqp-collection-subgraph subgraph.testnet.yaml
+graph deploy --studio aqp-subgraph subgraph.testnet.yaml
 ```
 
 ### Local Development (optional)
