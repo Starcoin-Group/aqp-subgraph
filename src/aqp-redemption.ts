@@ -1,7 +1,7 @@
 import {
   Redeemed as RedeemedEvent,
   TicketsClaimed as TicketsClaimedEvent,
-} from "../generated/ContractAqpRedemption/ContractAqpRedemption";
+} from "../generated/AqpRedemption/AqpRedemption";
 import { Redeemed, TicketsClaimed } from "../generated/schema";
 
 export function handleRedeemed(event: RedeemedEvent): void {
