@@ -71,7 +71,7 @@ dataSources:
           handler: handlePaused
         - event: PrizeClaimed(indexed uint16,indexed uint256,indexed address,uint8)
           handler: handlePrizeClaimed
-        - event: PrizePoolSet(indexed uint16,uint8)
+        - event: PrizePoolSet(indexed uint16,uint8,uint8[],uint256[])
           handler: handlePrizePoolSet
         - event: RandomNumberRequested(indexed uint16,uint256,uint256)
           handler: handleRandomNumberRequested
