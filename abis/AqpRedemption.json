@@ -261,6 +261,13 @@
     "stateMutability": "nonpayable"
   },
   {
+    "name": "aqpAddress",
+    "type": "function",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
     "name": "claimTickets",
     "type": "function",
     "inputs": [
@@ -318,6 +325,13 @@
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
+  },
+  {
+    "name": "luckyDrawAddress",
+    "type": "function",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
   },
   {
     "name": "owner",
@@ -447,5 +461,14 @@
     ],
     "outputs": [],
     "stateMutability": "payable"
+  },
+  {
+    "name": "userRedeemed",
+    "type": "function",
+    "inputs": [
+      { "name": "user", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
   }
 ]
