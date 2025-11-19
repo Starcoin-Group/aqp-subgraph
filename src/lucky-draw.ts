@@ -34,7 +34,7 @@ import {
   RoundSettled,
   Unpaused,
   Upgraded,
-  RoundStats,
+  RoundState,
 } from "../generated/schema";
 
 export function handleLuckyDrawEntered(event: LuckyDrawEnteredEvent): void {
@@ -52,15 +52,16 @@ export function handleLuckyDrawEntered(event: LuckyDrawEnteredEvent): void {
   entity.save();
 
   const formattedRoundId = event.params.roundId.toString();
-  let currentRoundStats = RoundStats.load(formattedRoundId);
-  if (!currentRoundStats) {
-    currentRoundStats = new RoundStats(formattedRoundId);
-    currentRoundStats.totalEntries = BigInt.fromI32(0);
+  let roundStateEntity = RoundState.load(formattedRoundId);
+  if (!roundStateEntity) {
+    roundStateEntity = new RoundState(formattedRoundId);
+    roundStateEntity.roundId = event.params.roundId;
+    roundStateEntity.totalEntries = BigInt.fromI32(0);
   }
-  currentRoundStats.totalEntries = currentRoundStats.totalEntries.plus(
+  roundStateEntity.totalEntries = roundStateEntity.totalEntries.plus(
     BigInt.fromI32(1)
   );
-  currentRoundStats.save();
+  roundStateEntity.save();
 }
 
 export function handleMerkleRootPublished(
@@ -147,6 +148,8 @@ export function handlePrizePoolSet(event: PrizePoolSetEvent): void {
   );
   entity.roundId = event.params.roundId;
   entity.numOfPrizeTiers = event.params.numOfPrizeTiers;
+  entity.prizeTierIds = event.params.prizeTierIds;
+  entity.numOfWinners = event.params.numOfWinners;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;

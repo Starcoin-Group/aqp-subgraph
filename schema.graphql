@@ -169,7 +169,8 @@ type Upgraded @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type RoundStats @entity(immutable: false) {
-  id: ID! # roundId
+type RoundState @entity(immutable: false) {
+  id: ID!
+  roundId: Int! # uint16
   totalEntries: BigInt!
 }

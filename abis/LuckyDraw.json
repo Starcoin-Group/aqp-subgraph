@@ -9,6 +9,7 @@
       { "name": "neededRole", "type": "bytes32", "internalType": "bytes32" }
     ]
   },
+  { "name": "AddressCannotBeZero", "type": "error", "inputs": [] },
   {
     "name": "AddressEmptyCode",
     "type": "error",
@@ -16,6 +17,9 @@
       { "name": "target", "type": "address", "internalType": "address" }
     ]
   },
+  { "name": "CallerNotOperator", "type": "error", "inputs": [] },
+  { "name": "CallerNotRedeemer", "type": "error", "inputs": [] },
+  { "name": "CallerNotUpgrader", "type": "error", "inputs": [] },
   {
     "name": "ERC1967InvalidImplementation",
     "type": "error",
@@ -27,14 +31,19 @@
   { "name": "EnforcedPause", "type": "error", "inputs": [] },
   { "name": "ExpectedPause", "type": "error", "inputs": [] },
   { "name": "FailedCall", "type": "error", "inputs": [] },
+  { "name": "InsufficientBalance", "type": "error", "inputs": [] },
+  { "name": "InsufficientFee", "type": "error", "inputs": [] },
   { "name": "InvalidEndTime", "type": "error", "inputs": [] },
   { "name": "InvalidInitialization", "type": "error", "inputs": [] },
   { "name": "InvalidMerkleProof", "type": "error", "inputs": [] },
   { "name": "InvalidMerkleRoot", "type": "error", "inputs": [] },
+  { "name": "InvalidNumOfPrizeTiers", "type": "error", "inputs": [] },
   { "name": "InvalidRoundId", "type": "error", "inputs": [] },
   { "name": "InvalidStartTime", "type": "error", "inputs": [] },
   { "name": "MerkleRootNotPublished", "type": "error", "inputs": [] },
   { "name": "NotInitializing", "type": "error", "inputs": [] },
+  { "name": "NumOfPrizeTiersNotMatch", "type": "error", "inputs": [] },
+  { "name": "NumOfWinnersNotMatch", "type": "error", "inputs": [] },
   {
     "name": "OwnableInvalidOwner",
     "type": "error",
@@ -56,6 +65,7 @@
   { "name": "ReentrancyGuardReentrantCall", "type": "error", "inputs": [] },
   { "name": "RoundAlreadySettled", "type": "error", "inputs": [] },
   { "name": "RoundInProgress", "type": "error", "inputs": [] },
+  { "name": "RoundNotClosed", "type": "error", "inputs": [] },
   { "name": "RoundNotOpened", "type": "error", "inputs": [] },
   { "name": "RoundNotSettled", "type": "error", "inputs": [] },
   { "name": "UUPSUnauthorizedCallContext", "type": "error", "inputs": [] },
@@ -437,6 +447,31 @@
     "anonymous": false
   },
   {
+    "name": "Withdrawn",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
     "name": "DEFAULT_ADMIN_ROLE",
     "type": "function",
     "inputs": [],
@@ -606,6 +641,15 @@
     "stateMutability": "view"
   },
   {
+    "name": "isRoundClosed",
+    "type": "function",
+    "inputs": [
+      { "name": "roundId", "type": "uint16", "internalType": "uint16" }
+    ],
+    "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+    "stateMutability": "view"
+  },
+  {
     "name": "isRoundOpened",
     "type": "function",
     "inputs": [
@@ -734,6 +778,19 @@
     "stateMutability": "nonpayable"
   },
   {
+    "name": "setWitnetRandomness",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_witnetRandomness",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
     "name": "settle",
     "type": "function",
     "inputs": [
@@ -782,6 +839,23 @@
     "stateMutability": "payable"
   },
   {
+    "name": "withdraw",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "withdrawERC20",
+    "type": "function",
+    "inputs": [
+      { "name": "token", "type": "address", "internalType": "address" },
+      { "name": "amount", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
     "name": "witnet",
     "type": "function",
     "inputs": [],
@@ -789,7 +863,7 @@
       {
         "name": "",
         "type": "address",
-        "internalType": "contract IWitRandomness"
+        "internalType": "contract IWitnetRandomness"
       }
     ],
     "stateMutability": "view"
